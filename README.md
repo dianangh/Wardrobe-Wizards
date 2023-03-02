@@ -10,6 +10,7 @@ added to shoes branch
 
 
 ## Design
+We'll be using Bootstrap to customize the architecture of the project
 
 ## Shoes microservice
 
