@@ -6,6 +6,8 @@ Team:
 * Diana Angarita - Shoes
 * Emily - Hats
 
+added to shoes branch
+
 
 ## Design
 
