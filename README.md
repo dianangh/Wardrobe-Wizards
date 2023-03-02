@@ -2,8 +2,10 @@
 
 Team:
 
-* Person 1 - Which microservice?
+
 * Diana Angarita - Shoes
+* Emily - Hats
+
 
 ## Design
 
