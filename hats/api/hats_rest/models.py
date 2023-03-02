@@ -7,7 +7,7 @@ class LocationVO(models.Model):
     closet_name = models.CharField(max_length=100)
 
 
-class Hats(models.Model):
+class Hat(models.Model):
     name = models.CharField(max_length=200, null=True)
     fabric = models.CharField(max_length=200, null=True)
     style_name = models.CharField(max_length=200, null=True)
@@ -23,4 +23,4 @@ class Hats(models.Model):
         return self.style_name
 
     def get_api_url(self):
-        return reverse("api_show_hat", kwargs={"id": self.id})
+        return reverse("api_list_hats", kwargs={"id": self.id})
