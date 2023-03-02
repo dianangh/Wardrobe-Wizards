@@ -2,10 +2,8 @@
 
 Team:
 
-
 * Diana Angarita - Shoes
-* Emily - Hats
-
+* Emily Arai - Hats
 
 ## Design
 
@@ -16,5 +14,4 @@ microservice, here.
 
 ## Hats microservice
 
-Explain your models and integration with the wardrobe
-microservice, here.
+Hats models and polling with wardrobe
