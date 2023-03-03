@@ -62,16 +62,10 @@ def api_list_hats(request, location_vo_id=None):
         print(content)
 
         try:
-            # print(content["location"])
-            # location_id = content["location"]
-            # location_href = f"api/locations/{location_id}/"
-            # print("location_href: ", location_href)
-            # print(LocationVO.objects.all())
-            # # print("id", LocationVO.objects.get(id=3))
-            # print("Get with href: ", LocationVO.objects.get(import_href=location_href))
-            location = LocationVO.objects.get(id=content["location"])
-            print("location: ", location)
-            content["location"] = location
+            location_id = content["location"]
+            location_href = f"/api/locations/{location_id}/"
+            location = LocationVO.objects.filter(import_href=location_href)
+            content["location"] = location[0]
 
         except LocationVO.DoesNotExist:
             return JsonResponse(
