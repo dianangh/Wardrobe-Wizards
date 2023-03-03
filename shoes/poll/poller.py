@@ -17,10 +17,10 @@ def get_bin():
     print("Response:", response)
     content = json.loads(response.content)
     print("content", content)
-    for bin_storage in content["bin"]:
+    for bin_storage in content["bins"]:
         BinVO.objects.update_or_create(
             import_href=bin_storage["href"],
-            defaults={"closet_name": bin_storage["closet_name"]},
+            closet_name=bin_storage["closet_name"]
         )
 
 def poll():
