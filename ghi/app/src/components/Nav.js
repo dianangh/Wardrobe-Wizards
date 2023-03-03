@@ -21,13 +21,7 @@ function Nav() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-<<<<<<< HEAD
-              <NavLink className="nav-link active" aria-current="page" to="/">
-                Home
-              </NavLink>
-=======
               <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
->>>>>>> da5b6a17a4b35371808419af315984f70408df0e
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/shoes">
