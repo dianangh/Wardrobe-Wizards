@@ -61,7 +61,8 @@ def api_list_hats(request, location_vo_id=None):
             # location_href = f"api/locations/{location_id}/"
             # print("location_href: ", location_href)
             # print(LocationVO.objects.all())
-            # # print("id", LocationVO.objects.get(id=3))
+            # print("id", LocationVO.objects.get(id=3))
+            # print("testing", LocationVO.objects.get(id=content["location"]))
             # print("Get with href: ", LocationVO.objects.get(import_href=location_href))
             location = LocationVO.objects.get(id=content["location"])
             print("location: ", location)
@@ -105,4 +106,3 @@ def api_show_hat(request, id):
             )
         except Hat.DoesNotExist:
             return JsonResponse({"message": "Does not exist"})
-        

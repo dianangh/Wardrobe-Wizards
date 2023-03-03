@@ -24,7 +24,7 @@ class ShoesListEncoder(ModelEncoder):
     ]
 
     def get_extra_data(self, o):
-        return {"bin": o.bin.closet_name}
+        return {"bin_storage": o.bin_storage.closet_name}
 
 class ShoesDetailEncoder(ModelEncoder):
     model = Shoes
@@ -55,7 +55,6 @@ def api_list_shoes(request, bin_vo_id=None):
             print("this is the bin shoes: ", bin_storage)
         else:
             shoes = Shoes.objects.all()
-            print("shoesssssss:", shoes)
         return JsonResponse (
             {"shoes": shoes},
             encoder=ShoesListEncoder,
