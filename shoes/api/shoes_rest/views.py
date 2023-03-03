@@ -21,6 +21,8 @@ class ShoesListEncoder(ModelEncoder):
     properties = [
         "brand",
         "id",
+        "color",
+        "style",
     ]
 
     def get_extra_data(self, o):
@@ -66,7 +68,7 @@ def api_list_shoes(request, bin_vo_id=None):
 
         try:
             print("content bin storage!!!!!!!!!!", content["bin_storage"])
-            bin_storage = BinVO.objects.get(id=content["bin_storage"])
+            bin_storage = BinVO.objects.get(import_href=content["bin_storage"])
             print("binnnnnn storage", bin_storage)
             content["bin_storage"] = bin_storage
             print("content with storg", content["bin_storage"])
