@@ -15,14 +15,19 @@ class LocationVoDetailEncoder(ModelEncoder):
 class HatListEncoder(ModelEncoder):
     model = Hat
     properties = [
-        "name"
+        "name",
+        "fabric",
+        "color",
+        "style_name",
+        "picture_url",
+        "location",
     ]
     encoders = {
         "location": LocationVoDetailEncoder(),
     }
 
     def get_extra_data(self, o):
-        return {"location": o.location.import_href}
+        return {"location": o.location.closet_name}
 
 class HatDetailEncoder(ModelEncoder):
     model = Hat
@@ -105,4 +110,3 @@ def api_show_hat(request, id):
             )
         except Hat.DoesNotExist:
             return JsonResponse({"message": "Does not exist"})
-        
