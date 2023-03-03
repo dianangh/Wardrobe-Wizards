@@ -15,6 +15,7 @@ class LocationVoDetailEncoder(ModelEncoder):
 class HatListEncoder(ModelEncoder):
     model = Hat
     properties = [
+        "id",
         "name",
         "fabric",
         "color",

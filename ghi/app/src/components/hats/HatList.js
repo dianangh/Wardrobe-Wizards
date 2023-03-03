@@ -5,13 +5,30 @@ function HatList() {
     const [hats, setHats ] = useState([]);
     const [locations, setLocations ] = useState([])
 
+    const handleDelete = async (e) => {
+        console.log("hello")
+        console.log("e.target.id", typeof(e.target.id));
+        const url = `http://localhost:8090/api/hats/${e.target.id}`
+
+
+        const fetchConfig = {
+            method: 'delete',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+
+        const resp = await fetch(url, fetchConfig)
+        const data = await resp.json();
+
+        setHats(hats.filter(hat => String(hat.id) !== e.target.id))
+
+    }
+
     const getData = async () => {
         const resp = await fetch('http://localhost:8090/api/hats/');
         if (resp.ok) {
             const data = await resp.json();
-            // console.log("Data: ", data);
-            console.log(data.hats);
-            // console.log(data.hats[0]["name"])
             setHats(data.hats);
         }
     }
@@ -48,6 +65,7 @@ function HatList() {
                                             <td>{ hat.fabric }</td>
                                             <td>{ hat.color }</td>
                                             <td>{ hat.location }</td>
+                                            <td><button onClick={handleDelete} id={hat.id} className="btn btn-sm btn-danger">Delete</button></td>
                                         </tr>
                                     )
                                 })
