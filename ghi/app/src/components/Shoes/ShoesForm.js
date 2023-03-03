@@ -43,7 +43,7 @@ function ShoeForm() {
 
         const response = await fetch(url, fetchConfig);
         console.log("this is the response", response)
-
+        console.log("line 58 response", response);
         if (response.ok) {
             setFormData({
                 brand: "",
@@ -54,7 +54,7 @@ function ShoeForm() {
                 bin_storage: "",
             });
         }
-        console.log("line 58 response", response)
+
     }
 
     const handleFormChange = (event) => {
@@ -76,12 +76,13 @@ function ShoeForm() {
                         <h1>Create a new Shoe</h1>
                         <form onSubmit={handleSubmit} id="create-location-form">
                             <div className="form-floating mb-3">
-                            <input onChange={handleFormChange}  placeholder="Manufacturer" required type="text" name="brand" id="brand" className="form-control" />
+                            <input onChange={handleFormChange} value={formData.brand} placeholder="Manufacturer" required type="text" name="brand" id="brand" className="form-control" />
                             <label htmlFor="brand">Manufacturer</label>
                         </div>
                         <div className="form-floating mb-3">
                         <input
                             onChange={handleFormChange}
+                            value={formData.model_name}
                             placeholder="Model Name"
                             required
                             type="text"
@@ -94,6 +95,7 @@ function ShoeForm() {
                         <div className="form-floating mb-3">
                         <input
                             onChange={handleFormChange}
+                            value={formData.color}
                             placeholder="Color"
                             required
                             type="text"
@@ -106,6 +108,7 @@ function ShoeForm() {
                         <div className="form-floating mb-3">
                         <input
                             onChange={handleFormChange}
+                            value={formData.style}
                             placeholder="Style"
                             type="text"
                             name="style"
@@ -117,6 +120,7 @@ function ShoeForm() {
                         <div className="form-floating mb-3">
                         <input
                             onChange={handleFormChange}
+                            value={formData.photo_url}
                             placeholder="Picture"
                             type="text"
                             name="photo_url"
