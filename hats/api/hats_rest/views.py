@@ -9,20 +9,26 @@ from common.json import ModelEncoder
 
 class LocationVoDetailEncoder(ModelEncoder):
     model = LocationVO
-    properties = ["id", "closet_name", "import_href"]
+    properties = ["closet_name", "import_href"]
 
 
 class HatListEncoder(ModelEncoder):
     model = Hat
     properties = [
-        "name"
+        "id",
+        "name",
+        "fabric",
+        "color",
+        "style_name",
+        "picture_url",
+        "location",
     ]
     encoders = {
         "location": LocationVoDetailEncoder(),
     }
 
     def get_extra_data(self, o):
-        return {"location": o.location.import_href}
+        return {"location": o.location.closet_name}
 
 class HatDetailEncoder(ModelEncoder):
     model = Hat
@@ -56,17 +62,10 @@ def api_list_hats(request, location_vo_id=None):
         print(content)
 
         try:
-            # print(content["location"])
-            # location_id = content["location"]
-            # location_href = f"api/locations/{location_id}/"
-            # print("location_href: ", location_href)
-            # print(LocationVO.objects.all())
-            # print("id", LocationVO.objects.get(id=3))
-            # print("testing", LocationVO.objects.get(id=content["location"]))
-            # print("Get with href: ", LocationVO.objects.get(import_href=location_href))
-            location = LocationVO.objects.get(id=content["location"])
-            print("location: ", location)
-            content["location"] = location
+            location_id = content["location"]
+            location_href = f"/api/locations/{location_id}/"
+            location = LocationVO.objects.filter(import_href=location_href)
+            content["location"] = location[0]
 
         except LocationVO.DoesNotExist:
             return JsonResponse(
