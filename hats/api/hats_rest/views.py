@@ -9,7 +9,7 @@ from common.json import ModelEncoder
 
 class LocationVoDetailEncoder(ModelEncoder):
     model = LocationVO
-    properties = ["id", "closet_name", "import_href"]
+    properties = ["closet_name", "import_href"]
 
 
 class HatListEncoder(ModelEncoder):
