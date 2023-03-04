@@ -11,19 +11,19 @@ function App() {
 
   return (
     <BrowserRouter>
-     <div className="container">
-      <Nav />
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          < Route path="hats">
-            <Route index element={<HatList />} />
-            <Route path="new" element={<HatForm />}/>
-          </Route>
-          <Route path="shoes">
-            <Route index element={<ShoeList />} />
-            <Route path="new" element={<ShoesForm />} />
-          </Route>
-        </Routes>
+      <div className="container">
+        <Nav />
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="hats">
+              <Route index element={<HatList />} />
+              <Route path="new" element={<HatForm />}/>
+            </Route>
+            <Route path="shoes">
+              <Route index element={<ShoeList />} />
+              <Route path="new" element={<ShoesForm />} />
+            </Route>
+          </Routes>
       </div>
     </BrowserRouter>
   );
