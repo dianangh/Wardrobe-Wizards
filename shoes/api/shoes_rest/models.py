@@ -1,4 +1,4 @@
-from django.db import models
+dofrom django.db import models
 from django.urls import reverse
 
 class BinVO(models.Model):

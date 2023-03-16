@@ -1,6 +1,6 @@
 body {
   /* background-color: #FFFFFC; */
-  background-color: #FBFEF9;
+  background-color: #327d00;
 }
 
 body {
@@ -25,4 +25,12 @@ code {
 
 .main-image{
   background-image: url("path/to/image.jpg");
+}
+
+.navbar-light .navbar-brand {
+  color: rgba(68, 44, 9, 0.9) !important;
+}
+
+.navbar-dark .navbar-brand {
+  color: red;
 }

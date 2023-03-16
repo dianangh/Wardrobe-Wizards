@@ -17,10 +17,10 @@ function ShoeForm() {
         const response = await fetch(url);
 
         if (response.ok) {
-        const data = await response.json();
-        console.log("this is the data, line 21", data)
-        console.log('line 24, bins data', setBins(data.bins))
-        setBins(data.bins);
+            const data = await response.json();
+            console.log("this is the data, line 21", data)
+            console.log('line 24, bins data', setBins(data.bins))
+            setBins(data.bins);
         }
     };
 
@@ -36,9 +36,9 @@ function ShoeForm() {
         const fetchConfig = {
             method: 'post',
             body: JSON.stringify(formData),
-                headers: {
+            headers: {
                 'Content-Type': 'application/json',
-                },
+            },
         };
 
         const response = await fetch(url, fetchConfig);
